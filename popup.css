@@ -1,0 +1,30 @@
+
+button {
+    background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 5px; 
+}
+textarea {
+    font-size:1.2rem;
+}
+form {
+    margin: 5px;
+}
+body {
+    background-color: lightgray;
+}
+label {
+    padding: .5rem;
+}
+textarea {
+
+    border-radius: 4px;
+
+    
+  }
