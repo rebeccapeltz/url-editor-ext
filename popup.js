@@ -1,26 +1,72 @@
-// chrome.tabs.getCurrent(function (tab) {
-//     console.log(tab.url);
-//     let url = tab.url
-//     document.querySelector('#url').value = url
-// }
-// );
+// add to popup DOM
+const linkTable = document.querySelector("#link-table");
 
-chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
-    let url = decodeURIComponent(tabs[0].url)
-    console.log(url)
-    document.querySelector('#url').value = url
+const getCell = (css, text) => {
+  const cell = document.createElement("div");
+  cell.appendChild(document.createTextNode(text));
+  const classes = css.split(" ");
+  for (let item of classes) {
+    cell.classList.add(item);
+  }
+  return cell;
+};
+const appendRow = (info) => {
+  const row = document.createElement("div");
+  
+  if (info.scheme.indexOf("https") < 0) {
+    row.classList.add("unencrypted");
+  }
+  row.classList.add("row");
+  linkTable.append(row);
+
+  row.append(getCell("cell scheme-cell", info.scheme));
+  row.append(getCell("cell text-cell", info.text));
+  row.append(getCell("cell link-cell", info.href));
+
+};
+
+// Update the relevant fields with the new data.
+const setDOMInfo = (info) => {
+  
+  console.log("info: ",info);
+  for (let i = 0; i < info.length; i++) {
+    console.log(info[i].href, info[i].text, info[i].scheme);
+   appendRow(info[i])
+  }
+  //document.querySelector('#anchor-data').textContent = JSON.stringify(info)
+};
+
+// Once the DOM is ready...
+// window.addEventListener('DOMContentLoaded', () => {
+//   // ...query for the active tab...
+//   chrome.tabs.query({
+//     active: true,
+//     currentWindow: true
+//   }, tabs => {
+//     // ...and send a request for the DOM info...
+//     chrome.tabs.sendMessage(
+//         tabs[0].id,
+//         {from: 'popup', subject: 'DOMInfo'},
+//         // ...also specifying a callback to be called
+//         //    from the receiving end (content script).
+//         setDOMInfo);
+//   });
+// });
+
+window.addEventListener("DOMContentLoaded", () => {
+  // ...query for the active tab...
+  chrome.tabs.query(
+    {
+      active: true,
+      currentWindow: true,
+    },
+    (tabs) => {
+      // ...and send a request to content for the DOM info...
+      chrome.tabs.sendMessage(
+        tabs[0].id,
+        { from: "popup", subject: "DOMInfo" },
+        setDOMInfo
+      );
+    }
+  );
 });
-
-window.addEventListener('DOMContentLoaded', e => {
-    const submitButton = document.querySelector('#submit')
-    submitButton.addEventListener('click', (event) => {
-        let navto = document.querySelector('#url').value
-        chrome.tabs.create({ url: navto });
-    })
-    const closeButton = document.querySelector('#close')
-    closeButton.addEventListener('click',event=>{
-        window.close()
-    })
-
-})
-

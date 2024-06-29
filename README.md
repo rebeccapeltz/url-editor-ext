@@ -1,14 +1,9 @@
 
-# URL Editor
-Edit a URL and open it in a new tab
+# Link Reveal
+The purpose of this extension is to make it easy to see the underlying locations of links rendered as anchor tags on the current web page.
 
-[URL Editor in Chrome Web Store](https://chrome.google.com/webstore/detail/url-editor/pcpboiodfmbabhpicgfndnnmlgalglij)
 
-[Create and publish custom Chrome apps & extensions](https://support.google.com/chrome/a/answer/2714278?hl=en)
 
-[Publish Extension](https://developer.chrome.com/webstore/publish)
-
-[Slideshare notes](https://www.slideshare.net/rebeccapeltz/intro-chrome-extensions-94618652?qid=a66f6dbe-e62d-494f-a1c4-d987bbe0c4b3&v=&b=&from_search=1)
 
 
 
