@@ -1,17 +1,17 @@
 body {
-    min-width: 700px;
-    font-size:large;
+    width: 700px;
+    height: 500px;
+    font-size:medium;
+    overflow-x: scroll; 
+    overflow-y: scroll; 
 }
 .link-table {
-    height: 400px;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
-    max-width: 300px;
+ 
 }
 .row {
     display: flex;
@@ -26,7 +26,7 @@ body {
 }
 .cell {
     padding: .5rem;
-    max-width: 200px;
+
     text-align: left;
 }
 .unencrypted{

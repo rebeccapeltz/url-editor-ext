@@ -9,13 +9,13 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
 // message from content
 chrome.runtime.onMessage.addListener(({message, sender}) => {
   // First, validate the message's structure.
-  console.log("sv: message", message);
-  console.log("sv: sender", sender);
+  //console.log("sv: message", message);
+  //console.log("sv: sender", sender);
   if ((sender === 'content') && (message === 'showPageAction')) {
-    console.log("acting on request from content");
+    //console.log("acting on request from content");
     // Enable the page-action for the requesting tab.
     chrome.pageAction.show(sender.tab.id);
   } else {
-    console.log("NOT acting on request from content");
+    //console.log("NOT acting on request from content");
   }
 });
