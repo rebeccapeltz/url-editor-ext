@@ -4,23 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Chrome Ext</title>
-    <link href="./popup.css" rel="stylesheet" type="text/css" />
+    <title>Link Reveal</title>
+    <link href="popup.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-    <h1>Links Found on Page</h1>
-    <div id="title"></div>
-    <div id="link-table">
-        <div class="row head-row">
-            <div class="cell scheme-cell">Scheme</div>
-            <div class="cell text-cell">Text</div>
-            <div class="cell link-cell">Link</div>
+    <!-- <div class="theGrid" id="tbl"></div> -->
+    <div class="container" id="links">
+        <div class="grid header row">
+            <div class="data">Id </div>
+            <div class="data">Scheme </div>
+            <div class="data">Text</div>
+            <div class="data">URL</div>
         </div>
 
-    </div>
-    <div id="anchor-data"></div>
-    <script src="./popup.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script src="popup.js"></script>
 </body>
 
 </html>
